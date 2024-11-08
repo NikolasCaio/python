@@ -1,7 +1,7 @@
 import random
 from time import sleep
 
-# Computador "pensa" em um número aleatório entre 0 e 5
+# Computador "pensa" em um número aleatório entre 0 e 10
 nc = random.randint(0, 10)
 
 print('Tente adivinhar o numero que eu to pensando entre 0 e 10: ')

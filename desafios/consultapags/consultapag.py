@@ -2,7 +2,7 @@ import openpyxl
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
-import pandas as pd
+
 caminho_planilha = 'C:\\Users\\thale\\Documents\\Estudos\\python\\desafios\\consultapags\\dados_clientes.xlsx'
 caminho_planilha2 = 'C:\\Users\\thale\\Documents\\Estudos\\python\\desafios\\consultapags\\planilha fechamento.xlsx'
 

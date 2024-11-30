@@ -39,19 +39,20 @@ def remover_tarefa(tarefas):
         print("Tarefa não encontrada!")
 
 # Programa principal
-tarefas = {}
+tarefas_lista = {}
+
 while True:
     exibir_menu()
     opcao = input("Escolha uma opção: ")  # Valor será uma string
 
     if opcao == "1":
-        adicionar_tarefa(tarefas)
+        adicionar_tarefa(tarefas_lista)
     elif opcao == "2":
-        listar_tarefas(tarefas)
+        listar_tarefas(tarefas_lista)
     elif opcao == "3":
-        marcar_concluida(tarefas)
+        marcar_concluida(tarefas_lista)
     elif opcao == "4":
-        remover_tarefa(tarefas)
+        remover_tarefa(tarefas_lista)
     elif opcao == "5":
         print("Encerrando o programa... Até logo!")
         break

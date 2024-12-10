@@ -67,4 +67,6 @@ while botao_proxima_pagina.get_attribute('disabled') == None:
     botao_proxima_pagina.click()
     baixar_relatorios_das_empresas(driver=driver)
 
+input('Aperte enter para FECHAR')
+
 

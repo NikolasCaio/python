@@ -5,12 +5,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 from selenium.webdriver.support.ui import Select
-
+from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 # Entrar na planilha
 workbook = openpyxl.load_workbook('C:\\Users\\thale\\Documents\\Estudos\\python\\projetos\\consultapags\\cadastro\\produtos_ficticios.xlsx')
 sheet_produtos = workbook['Produtos']
 # Copiar informacao de um campo e colar no seu campo correspondente
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 for linha in sheet_produtos.iter_rows(min_row=2):
     driver.get('https://cadastro-produtos-devaprender.netlify.app/')
     
@@ -106,14 +108,56 @@ for linha in sheet_produtos.iter_rows(min_row=2):
 
         
         
+    material = linha[11].value
+    botao_material = driver.find_element(By.XPATH, "//input[@id='material']")
     
+    botao_material.click()
+    botao_material.send_keys(material)
 
-    #material = linha[11].value
-    #fabricante = linha[12].value
-    #pais_origem = linha[13].value
-    #obsevacoes = linha[14].value
-    #codigo_de_barra = linha[15].value
-    #localizacao_armazem = linha[16].value
+    botao_proximo2 = driver.find_element(By.XPATH, "//button[@class='btn btn-primary me-2']")
+    botao_proximo2.click()
+
+    fabricante = linha[12].value
+    botao_fabricante = driver.find_element(By.XPATH, "//input[@id='manufacturer']")
+
+    botao_fabricante.click()
+    botao_fabricante.send_keys(fabricante)
+
+    pais_origem = linha[13].value
+    botao_pais_origem = driver.find_element(By.XPATH, "//input[@id='country']")
+
+    botao_pais_origem.click()
+    botao_pais_origem.send_keys(pais_origem)
+
+    obsevacoes = linha[14].value
+    botao_observacoes = driver.find_element(By.XPATH, "//textarea[@id='remarks']")
+
+    botao_observacoes.click()
+    botao_observacoes.send_keys(obsevacoes)
+
+    codigo_de_barra = linha[15].value
+    botao_codigo_de_barra = driver.find_element(By.XPATH, "//input[@id='barcode']")
+
+    botao_codigo_de_barra.click()
+    botao_codigo_de_barra.send_keys(codigo_de_barra)
+
+    localizacao_armazem = linha[16].value
+    botao_localizacao_armazem = driver.find_element(By.XPATH, "//input[@id='warehouse_location']")
+
+    botao_localizacao_armazem.click()
+    botao_localizacao_armazem.send_keys(localizacao_armazem)
+
+    botao_concluir = driver.find_element(By.XPATH, "//button[@class='btn btn-primary me-2']")
+    botao_concluir.click()
+    
+    sleep(1)
+    alert = Alert(driver)
+    alert.accept()
+
+    sleep(1)
+    botao_adicionar_mais_um = driver.find_element(By.XPATH, "//button[@class='btn btn-primary']")
+    botao_adicionar_mais_um.click()
+
 # Repetir esses passos para outros campos ate preencher campos daquela pagina
 # Clicar em proxima
 # Repetir os mesmos passos e ir para a proxima pagina(pagina 2)

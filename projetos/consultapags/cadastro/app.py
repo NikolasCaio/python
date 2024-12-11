@@ -114,6 +114,7 @@ for linha in sheet_produtos.iter_rows(min_row=2):
     botao_material.click()
     botao_material.send_keys(material)
 
+    # botao proximo da pagina 2
     botao_proximo2 = driver.find_element(By.XPATH, "//button[@class='btn btn-primary me-2']")
     botao_proximo2.click()
 
@@ -147,13 +148,15 @@ for linha in sheet_produtos.iter_rows(min_row=2):
     botao_localizacao_armazem.click()
     botao_localizacao_armazem.send_keys(localizacao_armazem)
 
+    # botao concluir da ultima pagina
     botao_concluir = driver.find_element(By.XPATH, "//button[@class='btn btn-primary me-2']")
     botao_concluir.click()
     
     sleep(1)
+    # botao de alerta do google
     alert = Alert(driver)
     alert.accept()
-
+    # botao de adicionar mais um 
     sleep(1)
     botao_adicionar_mais_um = driver.find_element(By.XPATH, "//button[@class='btn btn-primary']")
     botao_adicionar_mais_um.click()

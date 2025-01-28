@@ -16,7 +16,7 @@ for linha in pagina_fornecedores.iter_rows(min_row=2,values_only=True):
     arquivo_word.add_heading('Contrato de Prestacao de servico', 0)
 
     texto_contrato = f"""
-    Este contrato de prestação de serviços é feito entre {nome_empresa}], com endereço em {endereco}, 
+    Este contrato de prestação de serviços é feito entre {nome_empresa}, com endereço em {endereco}, 
    {cidade}, {estado}, CEP {cep} doravante denominado FORNECEDOR, e a empresa CONTRATANTE.
 
     Pelo presente instrumento particular, as partes têm, entre si, justo e acordado o seguinte:
@@ -46,4 +46,4 @@ for linha in pagina_fornecedores.iter_rows(min_row=2,values_only=True):
     
     arquivo_word.add_paragraph(texto_contrato)
 
-    arquivo_word.save(f'projetos\\consultapags\\automacao de contratos\\contratos')
+    arquivo_word.save(f'projetos\\consultapags\\automacao de contratos\\contratos/contrato_{nome_empresa}.docx')

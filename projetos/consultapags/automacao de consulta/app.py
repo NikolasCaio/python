@@ -5,7 +5,7 @@ from selenium.webdriver.support.select import Select
 import openpyxl
 
 numero_oab = 259155
-planilha_dados_consulta = openpyxl.load_workbook('C:\\Users\\thale\\Documents\\Estudos\\python\\projetos\\automacao de consulta\\dados_de_processos.xlsx')
+planilha_dados_consulta = openpyxl.load_workbook('projetos\consultapags\automacao de consulta\dados_de_processos.xlsx')
 pagina_processos = planilha_dados_consulta['processos']
 
 # 1 - Entrar no site https://pje-consulta-publica.tjmg.jus.br/
@@ -57,7 +57,7 @@ for link in links_abrir_processos:
                 pagina_processos.append([numero_oab,numero_processo.text,lista_participantes[0]])
             else:
                 pagina_processos.append([numero_oab,numero_processo.text,','.join(lista_participantes)])
-            planilha_dados_consulta.save('C:\\Users\\thale\\Documents\\Estudos\\python\\projetos\\automacao de consulta\\dados_de_processos.xlsx')
+            planilha_dados_consulta.save('projetos\consultapags\automacao de consulta\dados_de_processos.xlsx')
             driver.close()
 # 6 - Salvar os dados para uma planilha
 # 7 - Repetir ate finalizar todos os processos daquele advogado
